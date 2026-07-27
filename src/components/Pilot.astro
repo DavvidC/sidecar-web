@@ -1,0 +1,23 @@
+---
+const contactEmail = 'dawid.czepulkowski@gmail.com';
+---
+
+<section id="pilot" class="border-t border-line py-20">
+  <div class="wrap">
+    <div
+      class="grid grid-cols-1 items-center gap-8 rounded-r-md border border-line border-l-4 border-l-accent bg-surface px-7 py-8 md:grid-cols-[minmax(0,1fr)_auto] md:px-11 md:py-10"
+    >
+      <div>
+        <span class="eyebrow">Early access</span>
+        <h2 class="mt-1.5 mb-3 font-display text-[clamp(1.5rem,2.8vw,2.1rem)] font-bold leading-tight tracking-[-0.02em] text-balance">
+          We're onboarding a handful of pilot teams.
+        </h2>
+        <p class="max-w-[48ch] text-muted">
+          If your support queue is drowning and you'd rather fix that than buy another dashboard, we'd like to talk. Pilots are
+          free while we shape the product together.
+        </p>
+      </div>
+      <a href={`mailto:${contactEmail}?subject=Sidecar%20pilot`} class="btn btn-accent">Get in touch</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import TicketDemo from './TicketDemo.astro';
+---
+
+<div class="wrap grid grid-cols-1 items-center gap-10 py-14 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-14 md:py-22">
+  <div>
+    <span class="eyebrow">AI for IT support teams</span>
+    <h1 class="mt-4 mb-5 font-display text-[clamp(2.2rem,4.6vw,3.4rem)] font-extrabold leading-[1.06] tracking-[-0.025em] text-balance">
+      The AI that rides <em class="not-italic text-accent">alongside</em> your support team.
+    </h1>
+    <p class="mb-8 max-w-[42ch] text-[1.08rem] text-muted">
+      Sidecar reads the ticket, digs through the logs, and drafts the reply — while your engineers stay in the driver's seat.
+    </p>
+    <div class="flex flex-wrap items-center gap-3.5">
+      <a href="#pilot" class="btn btn-accent">Join the pilot</a>
+      <a href="#features" class="btn btn-ghost">See what it does</a>
+    </div>
+    <p class="mt-4 font-mono text-[0.75rem] text-muted">// built by people who answer tickets for a living</p>
+  </div>
+
+  <TicketDemo />
+</div>

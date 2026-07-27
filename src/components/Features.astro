@@ -1,0 +1,59 @@
+---
+const features = [
+  {
+    cmd: 'summarize',
+    title: 'Ticket summaries',
+    body: "Long threads collapsed into what happened, what's been tried, and what's still broken — before you even open the ticket.",
+  },
+  {
+    cmd: 'analyze',
+    title: 'Log analysis',
+    body: 'Paste in logs or connect a source. Sidecar picks out the errors that matter and correlates them with the reported symptoms.',
+  },
+  {
+    cmd: 'draft',
+    title: 'Suggested replies',
+    body: 'Replies drafted in your team\'s tone, based on the actual diagnosis — not generic "have you tried restarting" boilerplate.',
+  },
+  {
+    cmd: 'recall',
+    title: 'Similar incidents',
+    body: "Finds past tickets that match the one you're holding, including how they were resolved and how long it took.",
+  },
+  {
+    cmd: 'watch',
+    title: 'Vendor changelog monitoring',
+    body: 'Watches the release notes of the software your users depend on and warns you before an update becomes a ticket flood.',
+  },
+  {
+    cmd: 'file',
+    title: 'Automatic Jira tickets',
+    body: 'When an issue needs engineering, Sidecar files the Jira ticket with the evidence attached — repro, logs, and affected users.',
+  },
+];
+---
+
+<section id="features" class="border-t border-line py-20">
+  <div class="wrap">
+    <div class="mb-12 max-w-[56ch]">
+      <span class="eyebrow">What it does</span>
+      <h2 class="mt-3.5 mb-3 font-display text-[clamp(1.5rem,2.8vw,2.1rem)] font-bold leading-tight tracking-[-0.02em] text-balance">
+        Six things Sidecar handles while you work the queue.
+      </h2>
+      <p class="text-muted">
+        Every tool exists because we needed it ourselves. No dashboards for the sake of dashboards — just less time per ticket.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 border-t border-l border-line sm:grid-cols-2 lg:grid-cols-3">
+      {
+        features.map((f) => (
+          <div class="border-r border-b border-line px-6 pt-6.5 pb-7.5 transition-colors hover:bg-surface">
+            <div class="mb-3 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-accent">{f.cmd}</div>
+            <h3 class="mb-2 font-display text-[1.02rem] font-semibold">{f.title}</h3>
+            <p class="text-[0.88rem] text-muted">{f.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

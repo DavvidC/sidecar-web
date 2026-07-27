@@ -1,0 +1,157 @@
+@import 'tailwindcss';
+
+/* ---------- design tokens ---------- */
+:root {
+  --paper: #f2f4f6;
+  --surface: #fafbfc;
+  --ink: #131c24;
+  --muted: #5a6b78;
+  --line: #d3dae0;
+  --accent: #e85110;
+  --accent-ink: #ffffff;
+  --ok: #2e7d4f;
+  --warn: #b07708;
+  --code-bg: #e9edf0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #10181f;
+    --surface: #18232c;
+    --ink: #e7ecf0;
+    --muted: #93a3af;
+    --line: #2a3742;
+    --accent: #ff7a3d;
+    --accent-ink: #16100c;
+    --ok: #5cbe8a;
+    --warn: #e0a93e;
+    --code-bg: #1e2b35;
+  }
+}
+
+:root[data-theme='light'] {
+  --paper: #f2f4f6;
+  --surface: #fafbfc;
+  --ink: #131c24;
+  --muted: #5a6b78;
+  --line: #d3dae0;
+  --accent: #e85110;
+  --accent-ink: #ffffff;
+  --ok: #2e7d4f;
+  --warn: #b07708;
+  --code-bg: #e9edf0;
+}
+
+:root[data-theme='dark'] {
+  --paper: #10181f;
+  --surface: #18232c;
+  --ink: #e7ecf0;
+  --muted: #93a3af;
+  --line: #2a3742;
+  --accent: #ff7a3d;
+  --accent-ink: #16100c;
+  --ok: #5cbe8a;
+  --warn: #e0a93e;
+  --code-bg: #1e2b35;
+}
+
+/* expose tokens to Tailwind utilities: bg-paper, text-ink, border-line, … */
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-code: var(--code-bg);
+
+  --font-display: 'Avenir Next', 'Futura', 'Segoe UI', system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+}
+
+/* ---------- base ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ---------- shared components ---------- */
+@layer components {
+  .wrap {
+    @apply mx-auto max-w-[1080px] px-6;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[0.72rem] tracking-[0.14em] uppercase text-accent;
+  }
+
+  .btn {
+    @apply inline-block rounded-[3px] bg-ink px-5 py-2.5 font-display text-[0.9rem] font-semibold text-paper no-underline;
+  }
+  .btn:hover {
+    @apply bg-accent text-accent-ink;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-ink;
+  }
+  .btn-accent:hover {
+    @apply bg-ink text-paper;
+  }
+
+  .btn-ghost {
+    @apply border border-line bg-transparent text-ink;
+  }
+}
+
+/* ---------- motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .demo-rise {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both 0.15s;
+  }
+  .panel-block {
+    animation: fadein 0.5s ease both;
+  }
+  .panel-block:nth-of-type(2) {
+    animation-delay: 0.6s;
+  }
+  .panel-block:nth-of-type(3) {
+    animation-delay: 1s;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

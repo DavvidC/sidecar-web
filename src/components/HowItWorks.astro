@@ -1,0 +1,41 @@
+---
+const steps = [
+  {
+    step: 'Step 1',
+    title: 'Connect',
+    body: 'Plug Sidecar into your helpdesk and ticketing tools. No migration, no new inbox — it attaches to what you already use.',
+  },
+  {
+    step: 'Step 2',
+    title: 'Ride along',
+    body: 'Sidecar appears next to each ticket with a summary, log findings, similar incidents, and a drafted reply.',
+  },
+  {
+    step: 'Step 3',
+    title: 'You decide',
+    body: 'Nothing is sent or filed without a human saying so. Your engineers approve, edit, or ignore — Sidecar learns either way.',
+  },
+];
+---
+
+<section id="how" class="border-t border-line py-20">
+  <div class="wrap">
+    <div class="mb-12 max-w-[56ch]">
+      <span class="eyebrow">How it works</span>
+      <h2 class="mt-3.5 mb-3 font-display text-[clamp(1.5rem,2.8vw,2.1rem)] font-bold leading-tight tracking-[-0.02em] text-balance">
+        Bolted onto your helpdesk, not a replacement for it.
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+      {
+        steps.map((s) => (
+          <div>
+            <span class="eyebrow !text-muted">{s.step}</span>
+            <h3 class="mt-2.5 mb-2 font-display text-[1.05rem] font-semibold">{s.title}</h3>
+            <p class="text-[0.9rem] text-muted">{s.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

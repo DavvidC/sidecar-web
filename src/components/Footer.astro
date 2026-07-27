@@ -1,0 +1,11 @@
+---
+const contactEmail = 'dawid.czepulkowski@gmail.com';
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line pt-8 pb-12">
+  <div class="wrap flex flex-wrap items-center justify-between gap-4 text-[0.85rem] text-muted">
+    <span>© {year} Sidecar IT. All rights reserved.</span>
+    <a href={`mailto:${contactEmail}`} class="text-muted hover:text-ink">{contactEmail}</a>
+  </div>
+</footer>
