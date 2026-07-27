@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .box { stroke: #131C24; }
+    @media (prefers-color-scheme: dark) {
+      .box { stroke: #E7ECF0; }
+    }
+  </style>
+  <rect class="box" x="2.5" y="9.5" width="19" height="14" rx="2.5" fill="none" stroke-width="3"/>
+  <rect x="25" y="12.5" width="5.5" height="9" rx="1.5" fill="#E85110"/>
+</svg>
