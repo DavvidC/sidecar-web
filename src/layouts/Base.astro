@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title = 'Sidecar IT — AI for IT support teams',
   description = 'Sidecar IT — AI tools that ride alongside your IT support team. Ticket summaries, log analysis, suggested replies, and more.',
+  noindex = false,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://sidecar-web.workers.dev');
@@ -23,6 +25,7 @@ const canonical = new URL(Astro.url.pathname, site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />

@@ -1,20 +1,80 @@
 ---
 import Base from '../layouts/Base.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Features from '../components/Features.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import Pilot from '../components/Pilot.astro';
-import Footer from '../components/Footer.astro';
+
+const contactEmail = 'dawid.czepulkowski@gmail.com';
+const year = new Date().getFullYear();
 ---
 
-<Base>
-  <Header />
-  <main>
-    <Hero />
-    <Features />
-    <HowItWorks />
-    <Pilot />
+<Base title="Sidecar IT — coming soon" description="Sidecar IT — AI tools for IT support teams. Work in progress.">
+  <main class="flex min-h-screen flex-col items-center justify-center gap-10 px-6 text-center">
+    <button id="logo" type="button" aria-label="Sidecar IT" class="cursor-default border-0 bg-transparent p-4">
+      <span class="mark" aria-hidden="true"></span>
+    </button>
+
+    <div>
+      <p class="eyebrow mb-4">Sidecar IT</p>
+      <h1 class="mb-4 font-display text-[clamp(1.8rem,4vw,2.6rem)] font-extrabold leading-tight tracking-[-0.02em] text-balance">
+        Something's in the garage.
+      </h1>
+      <p class="mx-auto max-w-[44ch] text-muted">
+        We're building AI tools for IT support teams. Not quite road-ready — check back soon, or say hello in the meantime.
+      </p>
+    </div>
+
+    <a href={`mailto:${contactEmail}`} class="font-mono text-[0.8rem] text-muted no-underline hover:text-ink">{contactEmail}</a>
+
+    <p class="text-[0.75rem] text-muted opacity-60">© {year} Sidecar IT</p>
   </main>
-  <Footer />
 </Base>
+
+<style>
+  .mark {
+    display: inline-block;
+    width: 66px;
+    height: 42px;
+    border: 6px solid var(--ink);
+    border-radius: 6px;
+    position: relative;
+  }
+  .mark::after {
+    content: '';
+    position: absolute;
+    right: -24px;
+    top: 7px;
+    width: 14px;
+    height: 29px;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .mark::after {
+      animation: idle 3.2s ease-in-out infinite;
+    }
+    @keyframes idle {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-3px);
+      }
+    }
+  }
+</style>
+
+<script>
+  // 4 quick clicks on the logo opens the full site preview
+  let clicks = 0;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  document.getElementById('logo')?.addEventListener('click', () => {
+    clicks += 1;
+    clearTimeout(timer);
+    if (clicks >= 4) {
+      window.location.href = '/preview/';
+      return;
+    }
+    timer = setTimeout(() => {
+      clicks = 0;
+    }, 1500);
+  });
+</script>
